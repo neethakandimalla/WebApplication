@@ -1,0 +1,22 @@
+package com.MyBasics;
+
+public class WhileLoop {
+
+	public static void main(String[] args) {
+		
+		String bro="neetha";
+		 switch(bro)
+		 {
+		 
+		 case "hi":
+			 System.out.println("good");
+			 break;
+		 case "neetha":
+			 System.out.println("bad");
+			 break;
+		 
+		 }
+			 
+	}
+
+}

@@ -1,0 +1,18 @@
+package com.MyBasics;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String Name="neetha yerramada";
+		if(Name.endsWith("neetha"))
+		{
+			System.out.println("true");
+			
+		}
+		System.out.println("false");
+		
+
+	}
+
+}

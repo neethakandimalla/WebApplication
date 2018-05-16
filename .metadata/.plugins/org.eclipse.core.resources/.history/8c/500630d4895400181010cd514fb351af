@@ -1,0 +1,167 @@
+package CardinalHealth;
+
+
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FilterOutputStream;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Sample 
+{
+
+	public static void main(String[] args) throws InterruptedException, IOException 
+	{
+		FirefoxDriver driver=new FirefoxDriver();
+		driver.get("https://webssoil021.cardinalhealth.com/forms/Reporting/Reportinglogin.fcc?TYPE=33554433&REALMOID=06-d306327c-8b85-45b0-b7e4-92a6af65507c&GUID=0&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-8v4U7gacx%2fiRcJW9ckjIGQaNyBeBvFHeTe7CitcMwWzxKN3YR9OoG7gGSmsHwWG5FijGkbGLcG8Co%2bS6I0O3jfDXjyRzV%2fAN&TARGET=-SM-https%3a%2f%2freporting.cardinalhealth.com%2freportcenter%2f");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		
+		driver.findElementByName("USER").sendKeys("narasegowda_manju");
+		driver.findElementByName("PASSWORD").sendKeys("Infymn25");
+		driver.findElementByXPath(".//*[@id='HomepageSignIn']/form/input[10]").click();
+		Thread.sleep(10000);
+		
+		driver.findElementByClassName("input_search").sendKeys("validation");
+		Thread.sleep(5000);
+		driver.findElementByClassName("btn_go").click();
+		
+		String Parent_Window = driver.getWindowHandle();  
+		
+		driver.findElementByLinkText("Specialty Solutions Distribution Validation").click();
+		Thread.sleep(5000);
+		Set<String>allwindows=driver.getWindowHandles();
+		Iterator<String>iter=allwindows.iterator();
+		
+		String Main_window=iter.next();
+		String Child_window=iter.next();
+		//String Child_window2=iter.next();
+		
+		
+		driver.switchTo().window(Child_window);
+		
+		driver.findElementByXPath("html/body/div[4]/div/div[43]/div[1]/div[1]/div[2]").click();
+
+	
+		Thread.sleep(5000);
+		String report_total=driver.findElementByXPath("html/body/div[4]/div/div[76]/div[2]/div[1]/div[1]/div[4]/div/div[3]/div[1]").getAttribute("value");
+
+	
+		System.out.println("validation value is: "+report_total);
+		
+		/*driver.findElementByLinkText("Specialty Solutions Distribution Validation_Deploy").click();
+		
+		
+		Set<String>allwindows=driver.getWindowHandles();
+		Iterator<String>iter=allwindows.iterator();
+		
+		String Main_window=iter.next();
+		String Child_window=iter.next();
+		String Child_window2=iter.next();
+		
+		
+		driver.switchTo().window(Child_window);
+		
+		Thread.sleep(5000);
+		
+		driver.findElementByXPath(".//*[@id='12']/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div/div/div").click();
+		
+		FileInputStream File=new FileInputStream("C:\\Users\\Neetha.Yerramada\\Desktop\\NeethaSelenium\\CardinalTesting\\src\\Cardinal_Speciality.xlsx");
+		XSSFWorkbook workBook = new XSSFWorkbook(File);
+		XSSFSheet sheet = workBook.getSheet("Sheet1");
+		
+		 
+
+		
+		int Row_count=sheet.getLastRowNum();
+		for(int i=1;i<=Row_count;i++)
+		{
+			Row r=sheet.getRow(i);
+			double d=r.getCell(0).getNumericCellValue();
+			long x=(long)d;
+			String acc_num=Long.toString(x);
+			
+			System.out.println(acc_num);
+		
+			driver.findElementByXPath(".//*[@id='DS']/div/div/div[1]/div[1]/div[1]").sendKeys(acc_num);
+			
+			Actions act=new Actions(driver);
+			Thread.sleep(5000);
+			act.sendKeys(Keys.ENTER).build().perform();
+			Thread.sleep(5000); 
+			
+			String report_total=driver.findElementByXPath(".//*[div[@class='QvFrame']and[@class='Document_CH80']//div[@class='QvContent']//div[@class='QvGrid'//div[1]//div[4]//div[1]//div[3]").getText();
+			
+			System.out.println("validation value is: "+report_total);
+			
+			r.createCell(1).setCellValue(report_total);
+			
+			FileOutputStream file1=new FileOutputStream("C:\\Users\\Neetha.Yerramada\\Desktop\\NeethaSelenium\\CardinalTesting\\src\\Cardinal_Speciality_Result.xlsx");
+			workBook.write(file1);
+			
+			file1.flush();
+			file1.close();
+
+			driver.findElementByXPath(".//*[@id='12']/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div/div/div").click();
+		}
+		
+		driver.switchTo().window(Main_window);
+		Thread.sleep(5000);
+	
+		driver.switchTo().window(Child_window2);
+		
+		
+		for(int i=1;i<=Row_count;i++)
+		{
+			Row r=sheet.getRow(i);
+			double d=r.getCell(0).getNumericCellValue();
+			long x=(long)d;
+			String acc_num=Long.toString(x);
+			
+			System.out.println(acc_num);
+			
+			driver.findElementByXPath(".//*[@id='12']/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div/div/div").click();
+		
+		
+			driver.findElementByXPath(".//*[@id='DS']/div/div/div[1]/div[1]/div[1]").sendKeys(acc_num);
+			
+			Actions act2=new Actions(driver);
+			Thread.sleep(5000);
+			act2.sendKeys(Keys.ENTER).build().perform();
+			Thread.sleep(5000);
+			
+			String deploy_report_total=driver.findElementByXPath(".//*[div[@class='QvFrame']and[@class='Document_CH80']//div[@class='QvContent']//div[@class='QvGrid'//div[1]//div[4]//div[1]//div[3]").getText();
+			
+			System.out.println("Deploy validation value is: "+deploy_report_total);
+			
+			r.createCell(2).setCellValue(deploy_report_total);
+
+			FileOutputStream file1=new FileOutputStream("C:\\Users\\Neetha.Yerramada\\Desktop\\NeethaSelenium\\CardinalTesting\\src\\sample.xlsx");
+			workBook.write(file1);
+			
+			file1.flush();
+			file1.close();
+		}*/
+}
+}
+
+
+	
+
+
+

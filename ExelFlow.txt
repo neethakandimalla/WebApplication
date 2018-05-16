@@ -1,0 +1,11 @@
+
+ 1. File
+ 2. WorkBook
+ 3. Sheets
+ 4. Rows
+    Cells
+ Every Row of a Cells data should be extracted
+
+ Extension of Excel - .xlsx
+ Row -0
+ Cell-0  

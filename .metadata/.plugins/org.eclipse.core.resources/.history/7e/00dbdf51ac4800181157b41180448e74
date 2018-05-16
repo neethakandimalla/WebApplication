@@ -1,0 +1,22 @@
+package com.MyBasics;
+
+public class Test 
+{
+public static void main(String[] args)
+{
+	public void add()
+	{
+		System.out.println("hey i am in base class and add is 100");
+
+	}
+	public void sub()
+	{
+		System.out.println("hey i am in base class and sub is 50");
+
+	}
+}
+}
+
+
+
+

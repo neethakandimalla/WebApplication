@@ -1,0 +1,21 @@
+package com.MyBasics;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String Name="neetha-yerramada";
+		String []shortname=Name.split("-");
+		for(int i=0;i<shortname.length;i++)
+		{
+			System.out.println(shortname[i]);
+		}
+		
+		
+	
+		
+		
+
+	}
+
+}

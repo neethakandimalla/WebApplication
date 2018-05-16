@@ -1,0 +1,16 @@
+package com.MyBasics;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String Name="neetha yerramada";
+		if(Name.startsWith("neetha"))
+		{
+			System.out.println("true");
+		}
+		
+
+	}
+
+}

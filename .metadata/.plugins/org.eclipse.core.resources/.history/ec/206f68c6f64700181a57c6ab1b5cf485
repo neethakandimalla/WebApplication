@@ -1,0 +1,15 @@
+package com.MyBasics;
+
+public class WhileLoop {
+
+	public static void main(String[] args) {
+		
+		String bro="neetha";
+		 if(bro.equals("Neetha"))
+		 {
+		 System.out.println("true");
+		 }
+		 System.out.println("false");
+	}
+
+}

@@ -1,0 +1,25 @@
+package com.MyBasics;
+
+public class Test1 extends Test
+{
+
+	public static void main(String[] args)
+{
+		Test1 obj=new Test1();
+		obj.add();
+		
+		
+	
+	}
+	public void mul()
+	{
+		System.out.println("hey i am in child class and mul is 300");
+
+	}
+	public void div()
+	{
+		System.out.println("hey i am in child class and div is 400");
+
+	}
+
+}

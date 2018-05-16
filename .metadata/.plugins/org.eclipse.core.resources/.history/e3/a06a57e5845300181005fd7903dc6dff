@@ -1,0 +1,4 @@
+Feature: NewTours application logIn functionality Testing
+
+Scenario: Validating newTours LogIn functionality
+

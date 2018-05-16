@@ -1,0 +1,6 @@
+Feature: NewTours application logIn functionality Testing
+
+Scenario: Validating newTours LogIn functionality
+
+Given Open Firefox Browser and Navigate to NewTours Application
+When User enters valid UserName and Password and Click on SignIn button

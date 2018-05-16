@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="NewToursLogIn" parallel="tests">
+
+  <test name="OnFirefox">
+ <parameter name="Browser" value="firefox"/> 
+   <classes>
+     <class name="com.Grid.NewToursLogInTest"/>    
+    </classes>
+   </test> <!-- Test -->
+   
+   
+   <test name="onChrome">
+ <parameter name="Browser" value="chrome"/> 
+   <classes>
+     <class name="com.Grid.NewToursLogInTest"/>    
+    </classes>
+   </test> <!-- Test -->
+   
+</suite> <!-- NewToursLogIn -->

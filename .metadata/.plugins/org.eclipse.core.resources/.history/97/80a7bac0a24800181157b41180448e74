@@ -1,0 +1,36 @@
+package com.MyBasics;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Test 
+{
+	public static void main(String[] args)
+	{
+	Test obj=new Test();
+	obj.add(10, 20);
+	obj.sum(10, 20, 30);
+
+	}
+
+
+public int add(int a,int b)
+{
+	int c=a+b;
+	System.out.println(c);
+	return 0;
+}
+public int sum(int a,int b,int c)
+{
+	int d=a+b+c;
+	System.out.println(d);
+	return 0;
+	
+}
+}
+
+
+
+

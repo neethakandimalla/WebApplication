@@ -1,0 +1,8 @@
+# name locator for UserName Element
+UserName=email
+
+# name locator for password Element
+password=pass
+
+# XPath locator for SignIn Element
+login=.//*[@id='u_0_2']

@@ -1,0 +1,29 @@
+package com.MyBasics;
+
+public class WhileLoop
+{
+
+	public static void main(String[] args) 
+	{
+		WhileLoop driv=new WhileLoop();
+		driv.sum();
+		System.out.println();
+		
+		
+	
+		 
+		 
+			 
+	}
+
+
+
+public void sum()
+{
+ 	int a=10;
+ 	int b=20;
+ 	int c=a+b;
+ 	System.out.println(c);
+}
+}
+		

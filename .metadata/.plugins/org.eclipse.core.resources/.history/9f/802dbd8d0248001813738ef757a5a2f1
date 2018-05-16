@@ -1,0 +1,13 @@
+package com.MyBasics;
+
+public class Test {
+
+	public static void main(String[] args) {
+		
+		String Name="neetha yerramada";
+		Name.startsWith("neetha");
+		
+
+	}
+
+}

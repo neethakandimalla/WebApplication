@@ -1,0 +1,53 @@
+package CardinalHealth;
+
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Iterator;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+public class Account_Database {
+
+	public static void main(String[] args) throws InterruptedException, SQLException {
+	
+		FirefoxDriver driver=new FirefoxDriver();
+		driver.get("https://webssoil021.cardinalhealth.com/forms/Reporting/Reportinglogin.fcc?TYPE=33554433&REALMOID=06-d306327c-8b85-45b0-b7e4-92a6af65507c&GUID=0&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-8v4U7gacx%2fiRcJW9ckjIGQaNyBeBvFHeTe7CitcMwWzxKN3YR9OoG7gGSmsHwWG5FijGkbGLcG8Co%2bS6I0O3jfDXjyRzV%2fAN&TARGET=-SM-https%3a%2f%2freporting.cardinalhealth.com%2freportcenter%2f");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.findElementByName("USER").sendKeys("narasegowda_manju");
+		driver.findElementByName("PASSWORD").sendKeys("Infymn25");
+		driver.findElementByXPath(".//*[@id='HomepageSignIn']/form/input[10]").click();
+		Thread.sleep(10000);
+		
+		driver.findElementByClassName("input_search").sendKeys("validation");
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		driver.findElementByClassName("btn_go").click();
+		
+		String Parent_window=driver.getWindowHandle();
+		driver.findElementByLinkText("Specialty Solutions Distribution Validation").click();
+		driver.findElementByLinkText("Specialty Solutions Distribution Validation_Deploy").click();
+		
+		Set<String>windows=driver.getWindowHandles();
+		Iterator<String>iter=windows.iterator();
+		
+		String Main_window=iter.next();
+		String child_window1=iter.next();
+		String child_window2=iter.next();
+		
+		driver.switchTo().window(child_window1);
+		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+		
+		driver.findElementByXPath(".//div[contains(@class,'QvFrame') and contains(@class, 'Document_MB01')]/div[2]/div/div[1]/div[5]/div/div[2]/div[2]/div/div/div").click();
+		DriverManager.getConnection("sqlserver://localhost:1433/Cardinal_Report","","");
+		System.out.println("true");
+		
+			
+				
+		
+		
+		
+	}
+
+}
